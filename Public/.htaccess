@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+# Block access to hidden files (e.g., .git, .htaccess)
+RewriteRule "(^|/)\." - [F]
+
+# Disable directory browsing
+Options -Indexes
+
+# Set caching headers for static files
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|otf)$">
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+

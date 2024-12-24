@@ -1,0 +1,10 @@
+  =>  Template Name    : Student-Dashboard-Main Template
+
+  =>  Template Link    : https://github.com/Dammy-The-Traveller/Student-Dashboard-Main
+
+  =>  Template License : Read the LICENSE.txt file
+
+  =>  Template Author  : Damilare David Adeebesin 
+
+
+

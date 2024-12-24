@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --color-primary: #7380ec!important;
+    --color-danger: #ff7782!important;
+    --color-success: #41f1b6!important;
+    --color-warning: #ffbb55!important;
+    --color-white: #fff!important;
+    --color-info: #7d8da1!important;
+    --color-dark: #363949!important;
+    --color-light: rgba(132, 139, 200, 0.18)!important;
+    --color-dark-varient: #677483!important;
+    --color-background: #f6f6f9!important;
+    
+    --card-border-radius: 2rem!important;
+    --border-radius-1: 0.4rem!important;
+    --border-radius-2: 1.2rem!important;
+
+    --card-padding: 1.8rem!important;
+    --box-shadow: 0 2rem 3rem var(--color-light)    
+}
+
+.dark-theme{
+    --color-background: #181a1e!important;
+    --color-white: #202528!important;
+    --color-dark: #edeffd!important;
+    --color-dark-varient: #a3bdcc!important;
+    --color-light: rgba(0,0,0,0.4)!important;
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+
+*{
+    margin:0!important;
+    padding: 0!important;
+    text-decoration: none!important;
+    list-style: none!important;
+    box-sizing: border-box!important;
+}
+
+html{
+    font-size: 16px!important;
+    scroll-behavior: smooth!important;
+}
+body{
+    font-family: 'Poppins', sans-serif!important;
+    font-size: 1.2rem!important;
+    background: var(--color-background)!important;
+    user-select: none!important;
+    overflow-x: hidden!important;
+    color: var(--color-dark)!important;
+}
+*{
+    color: var(--color-dark)!important;
+}
+img{
+    display: block!important;
+    width: 100%!important;
+}
+h1{
+    font-weight: 800!important;
+    font-size: 1.8rem!important;
+}
+h2{font-size: 1.4rem!important;}
+h3{font-size: .87rem!important;}
+h4{font-size: .8rem!important;}
+h5{font-size: .77rem!important;}
+small{font-size: .75rem!important;}
+
+.text-muted{color: var(--color-info)!important;}
+p{color: var(--color-dark-varient)!important;}
+b{color: var(--color-dark)!important;}
+
+.primary{color: var(--color-primary)!important;}
+.danger{color: var(--color-danger)!important;}
+.success{color: var(--color-success)}
+.warning{color: var(--color-warning)!important;}
+
+.container{
+    position: relative!important;
+    display: grid!important;
+    width: 93%!important;
+    margin: 0 3rem!important;
+    gap: 1.8rem!important;
+    grid-template-columns: 14rem auto 23rem!important;
+    padding-top: 4rem!important;
+}
+header h3{font-weight: 500!important;} 
+header{
+    position: fixed!important;
+    width: 100vw!important;
+    z-index: 1000!important;
+    background-color: var(--color-background)!important;
+}
+header.active{box-shadow: var(--box-shadow)!important;}
+header .logo{
+    display: flex!important;
+    gap: .8rem!important;
+    margin-right: auto!important;
+}
+header .logo img{
+    width: 2rem!important;
+    height: 2rem!important;
+}
+
+header,
+header .navbar{
+    display: flex!important;
+    align-items: center!important;
+    justify-content: flex-end!important;
+    padding: 0 3rem!important;
+    color: var(--color-info)!important;
+}
+header .navbar a{
+    display: flex!important;
+    margin-left: 2rem!important;
+    gap: 1rem!important;
+    align-items: center!important;
+    justify-content: space-between!important;
+    position: relative!important;
+    height: 3.7rem!important;
+    transition: all 300ms ease!important;
+    padding: 0 2rem!important;
+}
+header .navbar a:hover {
+    padding-top: 1.5rem!important;
+}
+header .navbar a.active{
+    background: var(--color-light)!important;
+    color: var(--color-primary)!important;
+}
+header .navbar a.active::before{
+    content: ""!important;
+    background-color: var(--color-primary)!important;
+    position: absolute!important;
+    height: 5px!important;
+    width: 100%!important;
+    left: 0!important;top: 0!important;
+}
+header #profile-btn{
+    display: none!important;
+    font-size: 2rem!important;
+    margin: .5rem 2rem 0 0!important;
+    cursor: pointer!important;
+}
+header .theme-toggler{
+    background: var(--color-light)!important;
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
+    height: 1.6rem!important;
+    width: 4.2rem!important;
+    cursor: pointer!important;
+    border-radius: var(--border-radius-1)!important;
+    margin-right: 2rem!important;
+}
+header .theme-toggler span{
+    font-size: 1.2rem!important;
+    width: 50%!important;
+    height: 100%!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+header .theme-toggler span.active{
+    background-color: var(--color-primary)!important;
+    color: white!important;
+    border-radius: var(--border-radius-1)!important;
+}
+
+/* Profile section  */
+aside .profile{
+    margin-top: 2rem!important;
+    width: 13rem!important;
+    position: fixed!important;
+}
+aside .profile .top{
+    display: flex!important;
+    align-items: center!important;
+    gap: 1rem!important;
+    border-bottom: 1px solid var(--color-light)!important;
+    padding-bottom: 1rem!important;
+}
+aside .profile .top:hover .profile-photo{
+    scale: 1.05!important;
+}
+aside .profile .top .profile-photo{
+    width: 6rem!important;
+    height: 6rem!important;
+    border-radius: 50%!important;
+    overflow: hidden!important;
+    border: 5px solid var(--color-light)!important;
+    transition: all 400ms ease!important;
+}
+aside .profile .about p{
+    padding-bottom: 1rem!important;
+}
+aside .profile .about{
+    margin-top: 1rem!important;
+}
+
+/* Home Section  */
+main{
+    position: relative!important;
+    margin-top: 1.4rem!important;
+}
+main .subjects{
+    /* display: grid!important;
+    grid-template-columns: repeat(5, 1fr)!important;
+    gap: 1.6rem!important; */
+}
+
+main .subjects > div{
+    background-color: var(--color-white)!important;
+    /* padding: var(--card-padding)!important; */
+    border-radius: var(--card-border-radius)!important;
+    margin-top: 1rem!important;
+    box-shadow: var(--box-shadow)!important;
+    transition: all 300ms ease!important;
+}
+main .subjects > div:hover{
+    box-shadow: none;
+}
+main .subjects > div span{
+    /* background-color: var(--color-primary); */
+    /* padding: .5rem; */
+    /* border-radius: 50%; */
+    /* color: var(--color-white); */
+    /* font-size: 1.5rem; */
+}
+main .subjects > div.mth span,main .subjects > div.cg span{background: var(--color-danger);}
+main .subjects > div.cs span{background: var(--color-success);}
+
+main .subjects h3{
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+main .subjects .progress{
+    position: relative;
+    width: 89px;
+    height: 89px;
+    border-radius: 50%;
+    margin: auto;
+}
+main .subjects svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+main .subjects .eg svg circle{
+    stroke-dashoffset: 25;
+    stroke-dasharray: 210;
+}
+main .subjects .mth svg circle{
+    stroke-dashoffset: 7;
+    stroke-dasharray: 210;
+}
+main .subjects .cs svg circle{
+    stroke-dashoffset: 35;
+    stroke-dasharray: 210;
+}
+main .subjects .cg svg circle{
+    stroke-dashoffset: 0;
+    stroke-dasharray: 210;
+}
+main .subjects .net svg circle{
+    stroke-dashoffset: 5;
+    stroke-dasharray: 210;
+}
+main .subjects .progress .number{
+    position: absolute;
+    top: 0;left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .subjects small{
+    margin-top: 1rem;
+    display: block;
+}
+main .timetable{
+    margin-top: 2rem;
+}
+main .timetable h2{
+    margin-bottom: .8rem;
+}
+main .timetable table{
+    background-color: var(--color-white)!important;
+    width: 100%!important;
+    border-radius: var(--card-border-radius)!important;
+    padding: var(--card-padding)!important;
+    text-align: center!important;
+    box-shadow: var(--box-shadow)!important;
+    transition: all 300ms ease!important;
+}
+main .timetable span{display: none!important;}
+main .timetable table:hover{box-shadow: none!important;}
+main table tbody td{
+    height: 2.8rem!important;
+    border-bottom: 1px solid var(--color-light)!important;
+    color: var(--color-dark-varient)!important;
+}
+main table tbody tr:last-child td{border: none!important;}
+
+main .timetable.active{
+    width: 100%!important;
+    height: 100vh!important;
+    position: fixed!important;
+    top: 0!important;left: 0!important;
+    display: flex!important;
+    flex-direction: column!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+main .timetable.active h2{
+    color: var(--color-dark)!important;
+}
+main .timetable.active table{
+    width: 90%!important;
+    max-width: 1000px!important;
+    position: relative!important;
+}
+main .timetable.active span{
+    display: block!important;
+    font-size: 2rem!important;
+    color: var(--color-dark)!important;
+    cursor: pointer!important;
+}
+.timetable div{
+    position: relative!important;
+    width: 50%!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: space-between!important;
+}
+main .timetable.active .closeBtn{
+    position: absolute!important;
+    top: 5%!important;right: 5%!important;
+}
+
+
+/* Right  */
+.right{margin-top: 2.2rem!important;padding-left: 1.5rem!important;}
+
+.right .announcements h2{margin-bottom: .8rem!important;}
+.right .announcements .updates{
+    background-color: var(--color-white)!important;
+    padding: var(--card-padding)!important;
+    border-radius: var(--card-border-radius)!important;
+    box-shadow: var(--box-shadow)!important;
+    transition: all 300ms ease!important;
+}
+.right .announcements .updates:hover{box-shadow: none!important;}
+.right .announcements .updates .message{
+    gap: 1rem!important;
+    line-height: 1.5!important;
+    padding: .5rem 0!important;
+}
+
+/* Teachers on leave  */
+.right .leaves{margin-top: 2rem!important;}
+.right .leaves h2{margin-bottom: .8rem!important;}
+.right .leaves .teacher{
+    background: var(--color-white)!important;
+    display: flex!important;
+    align-items: center!important;
+    gap: 1rem!important;
+    margin-bottom: .7rem!important;
+    padding: 1.4rem var(--card-padding)!important;
+    border-radius: var(--border-radius-2)!important;
+    transition: all 300ms ease!important;
+    box-shadow: var(--box-shadow)!important;
+}
+.right .profile-photo{
+    width: 2.5rem!important;
+    height: 2.5rem!important;
+    border-radius: 50%!important;
+    overflow: hidden!important;
+}
+.right .leaves .teacher:hover{box-shadow: none!important;}
+
+
+
+
+
+/* MEDIA QUERIES  */
+@media screen and (max-width: 1200px) {
+    html{font-size: 12px!important;}
+    .container{
+        grid-template-columns: 13rem auto 20rem!important;
+    }
+    header{position: fixed!important;}
+    .container{padding-top: 4rem!important;}
+    header .logo h2{display: none!important;}
+    header .navbar h3{display: none!important;}
+    header .navbar a{width: 4.5rem!important; padding: 0 1rem!important;}
+
+    main .subjects{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1;
+    }
+    main .timetable{
+        width: 150%!important;
+        position: absolute!important;
+        padding: 4rem 0 0 0!important;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    html{font-size: 10px!important;}
+    header{padding: 0 .8rem!important;}
+    .container{width: 100%!important; grid-template-columns: 1fr!important;margin: 0!important;}
+    header #profile-btn{display: inline!important;}
+    header .navbar{padding: 0!important;}
+    header .navbar a{margin: 0 .5rem 0 0!important;}
+    header .theme-toggler{margin: 0!important;}
+    aside{
+        position: absolute!important;
+        top: 4rem!important;left: 0!important;right: 0!important;
+        background-color: var(--color-white)!important;
+        padding-left: 2rem!important;
+        transform: translateX(-100%)!important;
+        z-index: 10!important;
+        width:18rem!important;
+        height: 715px!important;
+        box-shadow: 1rem 3rem 4rem var(--color-light)!important;
+        transition: all 2s ease!important;
+    }
+    aside.active{
+        transform: translateX(0)!important;
+    }
+    main{padding: 0 2rem!important;}
+    main .timetable{
+        position: relative!important;
+        margin: 3rem 0 0 0!important;
+        width: 100%!important;
+    }
+    main .timetable table{
+        width: 100%!important;
+        margin: 0!important;
+    }
+    .right{
+        width: 100%!important;
+        padding: 2rem!important;
+    }
+}

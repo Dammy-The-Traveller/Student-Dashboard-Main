@@ -1,0 +1,1 @@
+<?php veiws('Student/Attendance/index.php');

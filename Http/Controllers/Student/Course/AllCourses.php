@@ -1,0 +1,1 @@
+<?php veiws('Student/Courses/AllCourses.view.php');

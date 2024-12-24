@@ -1,0 +1,1 @@
+<?php veiws('Student/dashboard/generateQrcode.php');
