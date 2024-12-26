@@ -68,7 +68,7 @@ This system enables students to login, generate ID cards, and view their course 
 ## Installation and Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Dammy-The-Traveller/Student-Dashboard-ID-Attendance-Management-System.git
+   git clone https://github.com/Dammy-The-Traveller/Student-Dashboard-Main.git
 
   
 

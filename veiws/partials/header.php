@@ -25,10 +25,13 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Home</h3>
             </a>
+            <?php if ($logged_user_type == null || $logged_user_type == 2): ?>
             <a href="/AllCourses" class="<?= urlIs('/AllCourses') ? 'active' : '' ?>" >
                 <span class="material-icons-sharp">today</span>
                 <h3>All Courses Attendance</h3>
             </a> 
+
+            <?php endif; ?>
             <?php if ($logged_user_type == 1 || $logged_user_type == 2): ?>
 
                 
@@ -41,7 +44,6 @@
                   <span class="material-icons-sharp">grid_view</span>
                 <h3>Registered Courses</h3>
                 </a>
-               
                 <?php endif; ?>
             <a href="/password" class="<?= urlIs('/password') ? 'active' : '' ?>">
                 <span class="material-icons-sharp">password</span>

@@ -14,7 +14,7 @@ $currentUserid = $_SESSION['user']['id'];
 // find the corresponding student
     $studentInfo = $db->query("SELECT * FROM `r_student` WHERE id =:user_id", ['user_id'=> $currentUserid])->findOrfail();
 if($studentInfo){
-// authorize that the current user can edit the note
+// authorize that the current user can edit the dashboard
 authorize($studentInfo['id'] == $currentUserid);
 // validate the form
     $errors=[];

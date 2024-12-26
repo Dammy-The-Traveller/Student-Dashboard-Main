@@ -5,7 +5,7 @@ use Core\QRcodeservice;
 use Core\Database;
 
 if (!isset($_SESSION['user'])) {
-    http_response_code(404); // Unauthorized
+    abort(403); // Unauthorized
     echo json_encode(['error' => 'Unauthorized']);
     exit;
 }
