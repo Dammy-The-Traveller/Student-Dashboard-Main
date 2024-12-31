@@ -34,7 +34,7 @@ if (!$signedIn) {
 exit;
 }
 
-This system enables students to login, generate ID cards, and view their course information while providing administrators with tools for attendance recording and ID card management including real-time scanning updates for attendance.
+
 redirect('/dashboard');
 
 
