@@ -1,9 +1,10 @@
 RewriteEngine On
+RewriteBase /
 
 # Redirect all requests to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [L]
+RewriteRule ^(.*)$ index.php [QSA,L]  # Fixed flag delimiters
 
 # Block access to hidden files (e.g., .git, .htaccess)
 RewriteRule "(^|/)\." - [F]
@@ -15,4 +16,3 @@ Options -Indexes
 <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|otf)$">
     Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
-

@@ -9,7 +9,7 @@ $db = App::resolve(Database::class);
 
  $logged_user_type = $_SESSION['user']['user_type'];
 $currentStudentid = $_SESSION['user']['student_id'];
-$currentUserid = $_SESSION['user']['id'];
+$currentUserid =  $_POST['id'];
 
 // find the corresponding student
     $studentInfo = $db->query("SELECT * FROM `r_student` WHERE id =:user_id", ['user_id'=> $currentUserid])->findOrfail();

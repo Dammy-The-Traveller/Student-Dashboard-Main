@@ -1,10 +1,10 @@
 <?php 
 namespace Http\Forms;
 
-use ValidationException;
+use Core\ValidationException;
 use Core\Validator;
 
-class loginform{
+class Loginform{
     protected $errors =[];
 
     public function __construct(public array $attribute){

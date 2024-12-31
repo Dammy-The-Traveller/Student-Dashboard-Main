@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 24, 2024 at 11:13 AM
+-- Generation Time: Dec 31, 2024 at 11:01 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.3.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lemsas-aitcourseware`
+-- Database: `lemsas`
 --
 
 -- --------------------------------------------------------

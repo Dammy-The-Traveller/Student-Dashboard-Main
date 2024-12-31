@@ -4,6 +4,7 @@ use Core\middleware\Auth;
 use Core\middleware\Guest;
 use Core\middleware\RegisteredStd;
 use Core\middleware\Admin;
+use Core\middleware\AdminStudent;
 class Middleware{
     public const MAP= [
        "guest"=> Guest::class,

@@ -5,7 +5,7 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 $logged_user_type = $_SESSION['user']['user_type']; 
-$studentId = $student['student_id'];
+$studentId = $_SESSION['user']['student_id'];
 $currentDate = date('Y-m-d');
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['course_code']) && !empty($_GET['course_code'])) {

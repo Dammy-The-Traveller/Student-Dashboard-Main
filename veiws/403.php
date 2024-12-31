@@ -208,7 +208,7 @@ div{
         />
       </g>
     </svg>
-    <svg
+  <svg
       id="svgWrap_1"
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
@@ -245,8 +245,8 @@ div{
           </femerge>
         </filter>
       </defs>
-    </svg>
+  </svg>
 
-    <h2>You are unaurthorize to use this page,<a href="/dashboard">Go back home</a></h2>
+    <h2>You are unaurthorize to use this page, <a href="/dashboard">Go back home</a></h2>
   </body>
 </html>

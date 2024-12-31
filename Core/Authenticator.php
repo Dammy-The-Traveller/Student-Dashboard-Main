@@ -13,27 +13,68 @@ class Authenticator{
     throw new \Exception("Current academic year data not found.");
    }
 
-  $user = $db->query(
-     "SELECT 
-            r_student.*,
-            password.*, 
-            reg_course.*, 
-            admin_technical.admin_id, admin_technical.user_type, admin_technical.gmail
-         FROM `r_student`
-         JOIN `password` ON r_student.idnumber = password.id_number
-        LEFT JOIN `reg_course` ON r_student.idnumber = reg_course.std_id
-       LEFT  JOIN `admin_technical` ON r_student.idnumber = admin_technical.admin_id
-         WHERE r_student.idnumber = :student_Id OR admin_technical.admin_id = :student_Id",
-        ['student_Id' => $student_id]
-  )->find();
+   $student = $db->query(
+    "SELECT * FROM r_student WHERE idnumber = :student_Id",
+    ['student_Id' => $student_id]
+)->find();
 
-  if (!$user) {
+
+$passwordData = $db->query(
+    "SELECT * FROM password WHERE id_number = :student_Id",
+    ['student_Id' => $student_id]
+)->find();
+
+$admin = $db->query(
+  "SELECT * FROM admin_technical WHERE admin_id = :student_Id",
+  ['student_Id' => $student_id]
+)->find();
+
+// var_dump($admin);
+// exit;
+
+$regCourse = $db->query(
+  "SELECT * FROM reg_course WHERE std_id = :student_Id",
+  ['student_Id' => $student_id]
+)->find();
+
+
+
+
+
+
+if (!$student && !$admin) {
     return false; // User not found
 }
 
+$user = [];
+if ($student) {
+    $user = array_merge($user, $student);
+}
+if ($passwordData) {
+    $user = array_merge($user, $passwordData);
+}
+if ($regCourse) {
+    $user = array_merge($user, $regCourse);
+}
+if ($admin) {
+    $user = array_merge($user, $admin);
+}
 
-$user['acdyr'] = $currentData['acdyr'];
-$user['acdsem'] = $currentData['sem'];
+
+   $user['user_type'] = $admin['user_type'] ?? 0; 
+   $user['gmail'] = $admin['gmail'] ?? null;     
+   $user['email'] = $user['email'] ?? null;       
+   $user['block'] = $user['block'] ?? 'N';    
+   $user['firstname'] = $user['firstname'] ?? 'Admin';    
+   $user['lastname'] = $user['lastname'] ?? 'User';       
+   $user['program'] = $user['program'] ?? 'N/A';          
+   $user['proglevel'] = $user['proglevel'] ?? 'N/A';      
+   $user['department'] = $user['department'] ?? 'N/A';    
+   $user['instid'] = $user['instid'] ?? 'N/A';            
+   $user['country'] = $user['country'] ?? 'N/A';  
+   $user['qdate'] = $user['qdate'] ?? date('Y-m-d');       
+  $user['acdyr'] = $currentData['acdyr'];
+   $user['acdsem'] = $currentData['sem'];
   //var_dump($user);
     //die();
 
@@ -59,7 +100,7 @@ $user['acdsem'] = $currentData['sem'];
       'email' => ($user['user_type'] == 1 || $user['user_type'] == 2) 
       ? $user['gmail'] 
       : $user['email'],
-      'student_id' => $user['idnumber'],
+      'student_id' => $user['idnumber'] ?? $user['admin_id'],
       //  'campus' => $user['campus'],
       'first_name' => $user['firstname'],
       'last_name' => $user['lastname'],
@@ -76,7 +117,7 @@ $user['acdsem'] = $currentData['sem'];
        'Date' => $user['qdate'],
   ];
   
-    session_regenerate_id(true);
+    // session_regenerate_id(true);
     
 }
 

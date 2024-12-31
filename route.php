@@ -6,6 +6,7 @@ $router->post("/login","Sessions/store.php")->only("guest");
 $router->get("/dashboard","Student/dashboard/Index.php")->only("auth");
 
 $router->get("/QRCODE","Student/dashboard/generateQrcode.php");
+$router->get("/studentinfo","Student/dashboard/StudentInfo.php");
 $router->patch("/update","Student/dashboard/update.php");
 
 $router->get("/Attendance","Student/Attendance/index.php")->only("admin");

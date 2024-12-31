@@ -4,6 +4,7 @@
     $logged_user_id =  $_SESSION['user']['student_id'];
     $logged_user_full_name =   $logged_user_first_name . ' '. $logged_user_last_name;
     $logged_user_type = $_SESSION['user']['user_type'];
+    $logged_id = $_SESSION['user']['id'];
    ?>
 <?php include __DIR__ . '/../../partials/header.php'; ?>
 <style>
@@ -408,7 +409,13 @@ main {
         </aside>
 
         <main style="flex: 1!important; margin-left: auto!important; margin-right: auto!important; padding: 16px!important; max-width: 83.333333%!important;">
-            <h1 class="ID-CARD-GENERATOR">ID CARD GENERATOR</h1>
+       
+       <h1 class="ID-CARD-GENERATOR">ID CARD GENERATOR</h1>
+       <label for="Student ID">
+        <strong>Student ID: </strong> <input type="text" id="StudentInfoId" style="display:border: 1px solid #ccc!important; border-radius: 4px!important; padding: 4px!important;">
+       </label>
+       <button id="generateInfoID" style="padding: 8px 16px!important; font-size: 1rem!important; background-color: #7380ec!important; color: #fff!important; border: none!important; border-radius: 4px!important; cursor: pointer!important;">Generate ID</button>
+       
             <div class="subjects">
 
 <div class="main-card" >
@@ -420,6 +427,7 @@ main {
     <form id="name-form" action="/update" method="POST" style="display: inline!important;">
       <input type="hidden" name="__method" value="PATCH">
       <div style="margin-top: 10px!important; margin-left: 2rem!important;">
+        <input type="text" name="id" value="<?php $logged_id ?>" style="display:none;">
         <!-- Name Field -->
         <p style="margin: 0!important; font-size: 1rem!important;">
           <strong>Name:</strong> 
@@ -554,6 +562,52 @@ main {
     <script src="/assets/js/timeTable.js"></script>
     <script src="/assets/js/app.js"></script>
     <script>
+         document.getElementById('generateInfoID').addEventListener('click', function () {
+            const studentInfoID = document.getElementById('StudentInfoId').value;
+          
+            var studentName, studentProgram, studentNationality, studentStudentID;
+            // console.log(studentInformationID);
+            fetch(`/studentinfo?student_id=${studentInfoID}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.success) {
+            var result = data.data[0];
+            console.log(result);
+            var studentName = result.firstname + ' ' + result.lastname;
+            var studentProgram = 'Bsc' + ' ' + 'in' + ' ' + result.program;
+            var studentNationality = result.country;
+            var studentStudentID = result.idnumber;
+          
+            console.log('Student Name:', studentName);
+            console.log('Program:', studentProgram);
+            console.log('Nationality:', studentNationality);
+            console.log('Student ID:', studentStudentID);
+
+               // Example: Update the DOM or use them elsewhere
+               document.getElementById('name-display').innerText = studentName;
+            document.getElementById('program-display').innerText = studentProgram;
+            document.getElementById('nationality-display').innerText = studentNationality;
+            document.getElementById('student-id-display').innerText = studentStudentID;
+
+            document.getElementById('name-input').value = studentName;
+            document.getElementById('program-input').value = studentProgram;
+            document.getElementById('nationality-input').value = studentNationality;
+           document.getElementById('student-id-input').value = studentStudentID;
+        } else {
+            console.error('Error fetching Student:', data.message);
+        }
+    })
+    .catch((error) => {
+        console.error('Fetch error:', error);
+    });
+
+
+         });
       document.getElementById('generate-id').addEventListener('click', function () {
       
           const horizontalID = `  <div id="card">
@@ -734,7 +788,7 @@ main {
                   font-size: 14px!important;
                   font-weight: bold!important;
               }
-              </style>
+              </styl>
           `;
       
           document.body.innerHTML = `

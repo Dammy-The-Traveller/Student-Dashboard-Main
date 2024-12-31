@@ -2,9 +2,9 @@
 //echo "hello there";
 return  [
   'database' => [
-    'host' => 'localhost', // Database server host
+    'host' => 'db', // Database server host
     'port' => 3306, // Database server port
-    'dbname'=> 'lemsas-aitcourseware', // Database name
+    'dbname'=> 'lemsas', // Database name
     'charset' => 'utf8mb4' // Character set for encoding
   ]
 ];

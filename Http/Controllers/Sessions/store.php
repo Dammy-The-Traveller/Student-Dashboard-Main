@@ -5,7 +5,7 @@ use Http\Forms\Loginform;
  
 
 
-$form = loginform::validate($attributes =[
+$form = Loginform::validate($attributes =[
     "student_id"=>  trim($_POST["student_id"],),
     "password"=> trim($_POST["password"]),
   

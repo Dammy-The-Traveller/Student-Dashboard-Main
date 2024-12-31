@@ -308,7 +308,7 @@ function populateAttendanceTable(records) {
         ],
         paging: true,
         searching: true,
-        ordering: true,
+        ordering: false,
         lengthMenu: [5, 10, 25, 50],
         pageLength: 5,
         responsive: true

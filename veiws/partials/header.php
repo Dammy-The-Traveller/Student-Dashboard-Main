@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="shortcut icon" href="/assets/img/logo.png">
+    <link href="/assets/img/favicon_io/favicon-32x32.png" type="image/x-icon" rel="icon">
+    <link href="/assets/img/favicon_io/favicon-16x16.png" type="image/x-icon" rel="icon">
     <link rel="stylesheet" href="/assets/css/icon.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
@@ -17,7 +18,7 @@
 <body>
     <header>
         <div  class="logo" title="University Management System">
-            <img src="/assets/img/logo.png" alt="">
+            <img src="/assets/img/ait-logo-png-e1709804120348.png" alt="">
             <h2>A<span class="danger">I</span>T</h2>
         </div>
         <div class="navbar">
