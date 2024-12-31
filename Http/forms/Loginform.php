@@ -1,5 +1,5 @@
 <?php 
-namespace Http\Forms;
+namespace Http\forms;
 
 use Core\ValidationException;
 use Core\Validator;
